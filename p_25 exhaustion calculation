@@ -1,0 +1,24 @@
+import numpy as np
+
+numFlips = 24
+nSims = 2**numFlips
+
+def sim(Input):
+    sequence = [1]
+    for j in range(len(Input)):
+        nextValue = sequence[-1] + 1 + int(Input[j])
+        sequence.append(nextValue)
+    return sequence
+    
+true = 0
+false = 0
+
+for i in range(nSims):
+    result = sim(str(bin(i)[2:]))
+    valid = 25 in result
+    if valid == True:
+        true += 1
+    else:
+        false += 1
+        
+print(true/(true+false))
