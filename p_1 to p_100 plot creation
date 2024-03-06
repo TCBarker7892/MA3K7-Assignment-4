@@ -1,0 +1,11 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+probs = [1, 0.5]
+for i in range(100):
+    probs.append(1-probs[-1]/2)
+
+plt.plot(probs)
+plt.xlabel('Number')
+plt.ylabel('Occurence Probability')
+plt.show()
